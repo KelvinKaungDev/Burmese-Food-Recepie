@@ -1,31 +1,34 @@
 import SwiftUI
 
 struct HistoryDetails : View {
-    var food : FoodBrain
+    var history : HistoryBrain
     
     var body : some View {
         ScrollView(.vertical,showsIndicators: false) {
             VStack {
-                Image(food.image)
+                Image(history.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .padding(.bottom)
                 
                 HStack {
-                    VStack(alignment: .leading, spacing: 5) {
+                    VStack(alignment: .leading,spacing: 5) {
                         
-                        Text(food.title)
+                        Text(history.title)
                             .font(.title)
                             .fontWeight(.black)
                         
-                        Text(food.subTitle)
-                            .font(.headline)
-                            .fontWeight(.bold)
+                        Text(history.descriptionOne)
+                            .font(.system(size:18))
+                            .padding(10)
+                            .lineSpacing(3)
                         
-                        Text(food.description)
-                            .foregroundColor(.secondary)
+                        Text(history.descriptionTwo)
+                            .font(.system(size:18))
+                            .padding(10)
+                            .lineSpacing(3)
                     }
-                    .padding()
+                    .padding(15)
                     Spacer()
                 }
             }

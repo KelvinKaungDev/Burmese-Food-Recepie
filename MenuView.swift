@@ -5,12 +5,13 @@ struct MenuView: View {
     @State var i : Int = 0
     
     var foods = Food().foodCollections()
+    var histories = History().history
     
     var body: some View {
         
         if show {
             let getFood = Food().getFoods(i: i)
-            FoodDetails(show: $show, img: getFood.image, title: getFood.title, subTitle: getFood.subTitle, description: getFood.description, ingredientOne: getFood.ingredientOne, ingredientTwo: getFood.ingredientTwo)
+            FoodDetails(show: $show, img: getFood.image, title: getFood.title, subTitle: getFood.subTitle, processes: getFood.process, description: getFood.description, ingredientOne: getFood.ingredientOne, ingredientTwo: getFood.ingredientTwo)
         }
         
         if !show {
@@ -22,7 +23,7 @@ struct MenuView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.brown)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.top, 30)
+                            .padding(.top, 20)
                             .padding(20)
 
                         ScrollView(.horizontal, showsIndicators: false) {
@@ -47,7 +48,7 @@ struct MenuView: View {
                         }
                         
                         Text("About Foods".uppercased())
-                            .font(.title3)
+                            .font(.title2)
                             .font(.footnote.bold())
                             .foregroundColor(.brown)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -55,9 +56,9 @@ struct MenuView: View {
                         
                         ScrollView(.vertical, showsIndicators: false) {
                             VStack(spacing: 20) {
-                                ForEach(foods, id: \.self) { food in
-                                    NavigationLink (destination: HistoryDetails(food: food)){
-                                        HistoryCollections(image: food.image, title: food.title, subtitle: food.subTitle, description: food.description)
+                                ForEach(histories, id: \.self) { history in
+                                    NavigationLink (destination: HistoryDetails(history: history)){
+                                        HistoryCollections(image: history.image, title: history.title, description: history.descriptionOne)
                                     }
                                 }
                             }

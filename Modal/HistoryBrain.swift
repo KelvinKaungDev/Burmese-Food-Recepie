@@ -1,11 +1,17 @@
-struct HistoryBrain {
+struct HistoryBrain : Hashable {
     
     var image : String
-    var description : String
+    var title : String
+    var subtitle : String
+    var descriptionOne : String
+    var descriptionTwo : String
     
-    init(image: String, description: String) {
+    init(image: String, descriptionOne: String, descriptionTwo: String, title: String, subtitle : String) {
         self.image = image
-        self.description = description
+        self.title = title
+        self.subtitle = subtitle
+        self.descriptionOne = descriptionOne
+        self.descriptionTwo = descriptionTwo
     }
 }
 

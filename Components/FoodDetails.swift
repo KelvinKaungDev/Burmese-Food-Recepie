@@ -9,6 +9,7 @@ struct FoodDetails: View {
     var img : String
     var title : String
     var subTitle : String
+    var processes : [String]
     var description : String
     var ingredientOne : [String]
     var ingredientTwo : [String]
@@ -132,8 +133,11 @@ struct FoodDetails: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.top, 20)
 
-                    Text("The list of signatories includes the names of more than 1,000 people alongside Musk, including Apple co-founder Steve Wozniak, Sapiens author Yuval Noah Harari, and some of AI’s most distinguished academics responsible for multiple breakthroughs in machine learning. As of Tuesday, no OpenAI employees had signed the letter, although CEO Sam Altman’s name briefly appeared then disappeared from the list of signatories. At least four Google ")
-                        .padding(.top, 20)
+                    ForEach(processes, id : \.self) { process in
+                            BulletPoint(text: process)
+                            .padding(.top, 10)
+                    }
+                    
                 } else {
                     Text("Ingredient for Vegan")
                         .font(.title)
@@ -149,10 +153,24 @@ struct FoodDetails: View {
     }
 }
 
+struct BulletPoint: View {
+    var text: String
+    
+    var body: some View {
+        HStack {
+            Text("•")
+                .font(.headline)
+                .padding(.trailing, 5)
+            Text(text)
+                .font(.title3)
+        }
+    }
+}
+
 struct FoodDetails_Previews: PreviewProvider {
 
     static var previews: some View {
-        FoodDetails(show: .constant(true), img: "", title: "", subTitle: "", description: "", ingredientOne: [""], ingredientTwo: [""])
+        FoodDetails(show: .constant(true), img: "", title: "", subTitle: "", processes: [""], description: "", ingredientOne: [""], ingredientTwo: [""])
     }
 }
 
