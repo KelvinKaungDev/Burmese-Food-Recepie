@@ -9,6 +9,7 @@ struct FoodDetails: View {
     var img : String
     var title : String
     var subTitle : String
+    var bgColor : Color
     var processes : [String]
     var description : String
     var ingredientOne : [String]
@@ -51,7 +52,7 @@ struct FoodDetails: View {
             Image(img)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .background(.brown)
+                .background(bgColor)
         )
         .mask(
             RoundedRectangle(cornerRadius: 30, style: .continuous)
@@ -61,8 +62,6 @@ struct FoodDetails: View {
                 Text(title)
                     .font(.largeTitle.weight(.bold))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text(subTitle.uppercased())
-                    .font(.footnote.weight(.semibold))
                 Text(description)
                 }
                 .padding(20)
@@ -96,8 +95,8 @@ struct FoodDetails: View {
                                     .frame(width: 90, height: 90)
                                     .padding(5)
                                 
-                                Text("Egg")
-                                    .font(.caption)
+                                Text(ingredientOne)
+                                    .font(.system(size: 17))
                                     .foregroundColor(.brown)
                             }
                         }
@@ -112,8 +111,8 @@ struct FoodDetails: View {
                                     .frame(width: 90, height: 90)
                                     .padding(5)
                                 
-                                Text("Egg")
-                                    .font(.caption)
+                                Text(ingredientTwo)
+                                    .font(.system(size: 17))
                                     .foregroundColor(.brown)
                             }
 
@@ -129,6 +128,7 @@ struct FoodDetails: View {
                     ForEach(processes, id : \.self) { process in
                             BulletPoint(text: process)
                             .padding(.top, 10)
+                            .lineSpacing(3)
                 }
             }
             .padding(20)
@@ -154,7 +154,7 @@ struct BulletPoint: View {
 struct FoodDetails_Previews: PreviewProvider {
 
     static var previews: some View {
-        FoodDetails(show: .constant(true), img: "", title: "", subTitle: "", processes: [""], description: "", ingredientOne: [""], ingredientTwo: [""])
+        FoodDetails(show: .constant(true), img: "", title: "", subTitle: "", bgColor: .brown, processes: [""], description: "", ingredientOne: [""], ingredientTwo: [""])
     }
 }
 

@@ -20,6 +20,7 @@ struct FoodCollections: View {
                 .frame(width: 250,height: 250)
                 .padding(.leading, 120)
                 .fixedSize()
+            
             VStack (spacing: 10){
                 Text(title)
                     .font(.largeTitle.weight(.bold))

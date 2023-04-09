@@ -9,7 +9,9 @@ struct HistoryDetails : View {
                 Image(history.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .padding(.bottom)
+                    .padding(5)
+                    .background(.brown)
+                    .mask(RoundedRectangle(cornerRadius: 15, style: .continuous))
                 
                 HStack {
                     VStack(alignment: .leading,spacing: 5) {

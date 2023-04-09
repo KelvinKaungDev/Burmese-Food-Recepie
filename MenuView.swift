@@ -13,7 +13,7 @@ struct MenuView: View {
         
         if show {
             let getFood = Food().getFoods(i: i)
-            FoodDetails(show: $show, img: getFood.image, title: getFood.title, subTitle: getFood.subTitle, processes: getFood.process, description: getFood.description, ingredientOne: getFood.ingredientOne, ingredientTwo: getFood.ingredientTwo)
+            FoodDetails(show: $show, img: getFood.image, title: getFood.title, subTitle: getFood.subTitle, bgColor: getFood.bgColor, processes: getFood.process, description: getFood.description, ingredientOne: getFood.ingredientOne, ingredientTwo: getFood.ingredientTwo)
         }
         
         if !show {
@@ -21,7 +21,7 @@ struct MenuView: View {
                     ScrollView( showsIndicators: false) {
                         
                         Text("Food Recipe")
-                            .font(.system(size: 40))
+                            .font(.system(size: 35))
                             .fontWeight(.bold)
                             .foregroundColor(.brown)
                             .frame(maxWidth: .infinity, alignment: .leading)

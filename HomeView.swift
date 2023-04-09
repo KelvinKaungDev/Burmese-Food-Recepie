@@ -1,14 +1,13 @@
-
 import SwiftUI
 
 struct HomeView: View {
-    var title = "Myanmar Traditional Foods"
 
     var body: some View {
         NavigationView {
             VStack {
-                Text(title.uppercased())
-                    .foregroundColor(.white)
+                Text("Myanmar Traditional Foods".uppercased())
+                    .fontWeight(.bold)
+                    .foregroundColor(.brown)
                     .font(.title2)
                     .padding(.top,100)
                 
@@ -21,17 +20,16 @@ struct HomeView: View {
                 Spacer()
                 
                 NavigationLink(destination: MenuView()) {
-                    Text("START COOK")
+                    Text("START COOKING")
                         .fontWeight(.bold)
                         .frame(width: 280, height: 50, alignment: .center)
-                        .foregroundColor(.brown)
-                        .background(.white)
+                        .foregroundColor(.white)
+                        .background(.brown)
                         .cornerRadius(10)
                         .padding(.top, 50)
                 }
                 .padding(.bottom, 150)
             }
-            .background(.brown)
         }
     }
 }
