@@ -8,19 +8,19 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "BurmeseFoodRecepie",
+    name: "BurmeseFoodRecipe",
     platforms: [
         .iOS("15.2")
     ],
     products: [
         .iOSApplication(
-            name: "BurmeseFoodRecepie",
+            name: "BurmeseFoodRecipe",
             targets: ["AppModule"],
             bundleIdentifier: "co.kelvin.BurmeseFoodRecepie",
             teamIdentifier: "ZJX29JM8H6",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .weights),
+            appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.brown),
             supportedDeviceFamilies: [
                 .pad,

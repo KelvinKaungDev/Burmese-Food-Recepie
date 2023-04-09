@@ -51,6 +51,7 @@ struct FoodDetails: View {
             Image(img)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
+                .background(.brown)
         )
         .mask(
             RoundedRectangle(cornerRadius: 30, style: .continuous)
@@ -80,53 +81,45 @@ struct FoodDetails: View {
     var detail : some View {
         VStack {
             VStack {
-                Toggle(isOn: $showVegan) {
-                    Text("Vegan")
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                }
-        
-                if !showVegan {
                     Text("Ingredient")
                         .font(.title)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                    VStack {
-                        HStack (alignment: .top, spacing: 20){
-                            ForEach(ingredientOne, id: \.self) { ingredientOne in
-                                VStack {
-                                    Image(ingredientOne)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 90, height: 90)
-                                        .padding(5)
-                                    
-                                    Text("Egg")
-                                        .font(.caption)
-                                        .foregroundColor(.brown)
-                                }
-                            }
-                        }
-                    
-                        HStack (alignment: .top, spacing: 20){
-                            ForEach(ingredientTwo, id: \.self) { ingredientTwo in
-                                VStack {
-                                    Image(ingredientTwo)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 90, height: 90)
-                                        .padding(5)
-                                    
-                                    Text("Egg")
-                                        .font(.caption)
-                                        .foregroundColor(.brown)
-                                }
-
+                VStack {
+                    HStack (alignment: .top, spacing: 20){
+                        ForEach(ingredientOne, id: \.self) { ingredientOne in
+                            VStack {
+                                Image(ingredientOne)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 90, height: 90)
+                                    .padding(5)
+                                
+                                Text("Egg")
+                                    .font(.caption)
+                                    .foregroundColor(.brown)
                             }
                         }
                     }
+                
+                    HStack (alignment: .top, spacing: 20){
+                        ForEach(ingredientTwo, id: \.self) { ingredientTwo in
+                            VStack {
+                                Image(ingredientTwo)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 90, height: 90)
+                                    .padding(5)
+                                
+                                Text("Egg")
+                                    .font(.caption)
+                                    .foregroundColor(.brown)
+                            }
 
-                    
+                        }
+                    }
+                }
                     Text("Process")
                         .font(.title)
                         .fontWeight(.bold)
@@ -136,15 +129,6 @@ struct FoodDetails: View {
                     ForEach(processes, id : \.self) { process in
                             BulletPoint(text: process)
                             .padding(.top, 10)
-                    }
-                    
-                } else {
-                    Text("Ingredient for Vegan")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                    Text("The list of signatories includes the names of more than 1,000 people alongside Musk, including Apple co-founder Steve Wozniak, Sapiens author Yuval Noah Harari, and some of AI’s most distinguished academics responsible for multiple breakthroughs in machine learning. As of Tuesday, no OpenAI employees had signed the letter, although CEO Sam Altman’s name briefly appeared then disappeared from the list of signatories. At least four Google alongside Musk, including Apple co-founder Steve Wozniak, Sapiens author Yuval Noah Harari, and some of AI’s most distinguished academics responsible for multiple breakthroughs in machine learning. As of Tuesday, no OpenAI employees had signed the letter, although CEO Sam Altman’s name briefly appeared then disappeared from the list of signatories. At least four Google  ")
                 }
             }
             .padding(20)

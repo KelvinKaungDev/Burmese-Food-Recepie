@@ -8,28 +8,30 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 Text(title.uppercased())
-                    .foregroundColor(.brown)
+                    .foregroundColor(.white)
                     .font(.title2)
                     .padding(.top,100)
                 
                 Spacer()
                 
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
+                Image("mote lone")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                 
                 Spacer()
                 
                 NavigationLink(destination: MenuView()) {
-                    Text("START")
+                    Text("START COOK")
+                        .fontWeight(.bold)
                         .frame(width: 280, height: 50, alignment: .center)
-                        .foregroundColor(.white)
-                        .background(.brown)
+                        .foregroundColor(.brown)
+                        .background(.white)
                         .cornerRadius(10)
                         .padding(.top, 50)
                 }
                 .padding(.bottom, 150)
             }
+            .background(.brown)
         }
     }
 }

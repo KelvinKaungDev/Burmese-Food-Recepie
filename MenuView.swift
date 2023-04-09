@@ -1,8 +1,10 @@
 import SwiftUI
 
 struct MenuView: View {
+    
     @State var show = false
     @State var i : Int = 0
+    @State private var larger = true
     
     var foods = Food().foodCollections()
     var histories = History().history
@@ -18,7 +20,7 @@ struct MenuView: View {
                 ZStack {
                     ScrollView( showsIndicators: false) {
                         
-                        Text("Food Recepies")
+                        Text("Food Recipe")
                             .font(.system(size: 40))
                             .fontWeight(.bold)
                             .foregroundColor(.brown)
@@ -44,12 +46,15 @@ struct MenuView: View {
                                 }
                             }
                             .padding(25)
-                            .animation(.easeInOut(duration: 0.5))
+                            .animation(.easeInOut(duration: 0.5), value : larger)
+                        }.onAppear {
+                            larger = false
                         }
                         
                         Text("About Foods".uppercased())
                             .font(.title2)
                             .font(.footnote.bold())
+                            .fontWeight(.bold)
                             .foregroundColor(.brown)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 20)
